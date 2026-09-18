@@ -28,6 +28,7 @@ simulador-escalonamento/
 ├── simulador/         Código-fonte do simulador
 ├── cenarios/          Conjuntos de tarefas em JSON
 └── docs/              Tutoriais e documentação técnica
+```
 
 ## Arquivos de código
 

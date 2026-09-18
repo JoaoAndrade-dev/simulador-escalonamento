@@ -20,19 +20,20 @@ A arquitetura do código foi estruturada com base na separação estrita entre o
 
 ## Estrutura do repositório
 
+```text
 simulador-escalonamento/
-├── README.md
-├── Simulador.exe
-├── main.py
-├── simulador/
-├── cenarios/
-└── docs/
+├── README.md          Documentação inicial do projeto
+├── Simulador.exe      Programa pronto para executar
+├── main.py            Ponto de entrada do código-fonte
+├── simulador/         Código-fonte do simulador
+├── cenarios/          Conjuntos de tarefas em JSON
+└── docs/              Tutoriais e documentação técnica
 
 ## Arquivos de código
 
 - `simulador/modelo.py` — estrutura de uma tarefa
-- `simulador/motor.py` — laço de simulação (mecanismo)[cite: 2]
-- `simulador/politicas.py` — os seis algoritmos (política)[cite: 2]
+- `simulador/motor.py` — laço de simulação (mecanismo)
+- `simulador/politicas.py` — os seis algoritmos (política)
 - `simulador/metricas.py` — cálculo de tt, tp e tw
 - `simulador/interface.py` — janela do programa
 
@@ -43,7 +44,7 @@ simulador-escalonamento/
 | Os seis algoritmos | `simulador/politicas.py` |
 | Métricas por tarefa | `simulador/metricas.py` |
 | Recurso de uso exclusivo | `simulador/motor.py` |
-| Herança e teto | `simulador/motor.py`[cite: 2] |
+| Herança e teto | `simulador/motor.py` |
 | Envelhecimento | `simulador/politicas.py` |
 | Sorteio de cenários | `simulador/gerador.py` |
 

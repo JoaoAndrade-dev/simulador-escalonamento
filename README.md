@@ -1,118 +1,74 @@
-# Simulador de Escalonamento de Tarefas
+# Simulador de Escalonamento de Tarefas — Grupo XX
 
-Projeto prático da disciplina de **Sistemas Operacionais**.
+## Integrantes
 
-O trabalho consiste em desenvolver um simulador de escalonamento de tarefas em
-um processador, capaz de reproduzir os algoritmos vistos em sala e o fenômeno
-da inversão de prioridades, com seus mecanismos de correção.
+- [Seu Nome Completo]
+- [Nome do Integrante 2]
+- [Nome do Integrante 3]
 
-O simulador implementa seis algoritmos:
+## Como executar
 
-- **FCFS** — First-Come, First-Served
-- **SJF** — Shortest Job First
-- **SRTF** — Shortest Remaining Time First
-- **RR** — Round-Robin
-- **PRIOc** — Prioridade cooperativa
-- **PRIOp** — Prioridade preemptiva
+Clique duas vezes em `Simulador.exe`[cite: 1].
 
-E os mecanismos de tratamento de recursos de uso exclusivo: **inversão de
-prioridades**, **herança de prioridade**, **teto de prioridade** e
-**envelhecimento**.
+Não é necessário instalar nada.
 
-## Documentos do projeto
+## Descrição
 
-Leia os dois antes de começar.
+Este projeto é um simulador de algoritmos de escalonamento de processos desenvolvido em Python[cite: 2]. Ele foi construído para reproduzir numericamente cenários de referência e expor fenômenos complexos de concorrência, como a inversão de prioridades e seus respectivos mecanismos de correção[cite: 2].
 
-- [📄 Enunciado](./documentos/01_enunciado.pdf) — o que o simulador precisa
-  fazer: os dez requisitos e os cenários de referência
-- [📘 Guia de documentação](./documentos/02_guia_documentacao.pdf) — o que
-  escrever no README, nos tutoriais e na documentação técnica
+A arquitetura do código foi estruturada com base na separação estrita entre o mecanismo de simulação e a política de escalonamento[cite: 2]. O sistema interage com o usuário por meio de uma interface gráfica[cite: 2].
 
-O enunciado descreve *o que fazer*; o guia de documentação descreve *como
-organizar a entrega*.
+## Estrutura do repositório
 
-## Organização deste repositório
-
-A branch `main` guarda apenas os documentos do projeto e **nunca recebe
-entregas**. Cada grupo tem uma **branch dedicada**, onde a entrega aprovada é
-incorporada.
-
-### Estado inicial
-
-```
 simulador-escalonamento/
-└── main
-    ├── README.md
-    ├── .gitignore
-    └── documentos/
-```
+├── README.md
+├── Simulador.exe
+├── main.py
+├── simulador/
+├── cenarios/
+└── docs/
 
-### Ao longo do semestre
+## Arquivos de código
 
-```
-simulador-escalonamento/
-├── main       Documentos do projeto (não muda)
-├── grupo1     Entrega do grupo 1
-├── grupo2     Entrega do grupo 2
-├── ...
-└── grupo8     Entrega do grupo 8
-```
+- `simulador/modelo.py` — estrutura de uma tarefa
+- `simulador/motor.py` — laço de simulação (mecanismo)[cite: 2]
+- `simulador/politicas.py` — os seis algoritmos (política)[cite: 2]
+- `simulador/metricas.py` — cálculo de tt, tp e tw
+- `simulador/interface.py` — janela do programa
 
-**Como navegar entre as entregas:** clique no seletor de branches, no canto
-superior esquerdo, onde aparece `main`, e escolha a branch do grupo desejado.
+## Funcionalidades
 
-## Como entregar
+| O que faz | Onde |
+|-----------|------|
+| Os seis algoritmos | `simulador/politicas.py`[cite: 2] |
+| Métricas por tarefa | `simulador/metricas.py` |
+| Recurso de uso exclusivo | `simulador/motor.py`[cite: 2] |
+| Herança e teto | `simulador/motor.py`[cite: 2] |
+| Envelhecimento | `simulador/politicas.py`[cite: 2] |
+| Sorteio de cenários | `simulador/gerador.py` |
 
-A entrega é feita por **fork + pull request**, conforme o guia de entrega
-distribuído em aula:
+## Documentação
 
-1. **Fazer o fork** deste repositório (botão `Fork`, no canto superior direito)
-2. **Clonar o fork** na máquina de um dos integrantes
-3. **Desenvolver o trabalho** no fork
-4. **Fazer commit e push** a cada avanço, ao longo de todo o desenvolvimento, e
-   não apenas no final. O commit registra a alteração no seu computador; só o
-   push a envia para o fork, que é o que o GitHub enxerga
-5. **Abrir um pull request para a branch do seu grupo**, com o título no
-   formato:
+- [Tutorial de execução](./docs/tutorial_execucao.pdf)
+- [Tutorial de uso](./docs/tutorial_uso.pdf)
+- [Documentação técnica](./docs/documentacao_projeto.pdf)
 
-```
-Entrega - Grupo XX - Nome dos integrantes
-```
+## Requisitos de ambiente
 
-> **O erro mais comum:** o GitHub oferece `main` como destino por padrão. A
-> `main` é protegida e não recebe entregas, então um pull request apontado para
-> ela é devolvido sem análise. Troque o campo `base` para a branch do seu grupo
-> **antes** de criar o pull request.
+- Python 3.10+[cite: 2]
+- Bibliotecas: Nenhuma biblioteca externa é necessária (apenas biblioteca padrão do Python)[cite: 2].
 
-## Estrutura esperada dentro do fork
+## Por onde começar
 
-```
-simulador-escalonamento/
-├── README.md              como executar, integrantes, funcionalidades
-├── Simulador.exe          o arquivo que abre com dois cliques
-├── main.py                ponto de entrada do código-fonte
-├── simulador/             código-fonte
-├── cenarios/              conjuntos de tarefas gravados
-└── docs/                  tutoriais e documentação técnica
-```
+1. Abra o programa e siga o tutorial de execução
+2. Reproduza um cenário de exemplo pelo tutorial de uso
+3. Consulte a documentação técnica para entender o código
 
-Há um modelo de README de grupo em
-[`documentos/modelo_readme_do_grupo.md`](./documentos/modelo_readme_do_grupo.md).
-Detalhes do conteúdo no
-[guia de documentação](./documentos/02_guia_documentacao.pdf).
+## Uso de assistentes de programação
 
-## Entregas dos grupos
-
-Entregas aprovadas e incorporadas ao repositório:
-
-<!-- Adicionar conforme os pull requests forem aceitos:
-- [Grupo 1](../../tree/grupo1) — Nomes dos integrantes
--->
-
-*Nenhuma entrega aprovada até o momento.*
-
-## Observações
-
-- O projeto precisa **abrir com dois cliques**, sem montagem de ambiente
-- Não há relatório escrito: a análise dos resultados é feita oralmente
-- Dúvidas: abrir uma **Issue** neste repositório
+Os assistentes de programação foram utilizados para:
+- Auxiliar na estruturação do `README.md` e da documentação técnica[cite: 2].
+- Explicar a implementação de algoritmos específicos e mecanismos, como a herança de prioridade[cite: 2].
+- Fornecer auxílio com o código-fonte base para o mecanismo de simulação e as políticas de escalonamento (arquivo `src/simulador.py`)[cite: 2].
+- Fornecer auxílio com ocódigo para a suíte de testes normativos (`tests/test_normativos.py`)[cite: 2].
+- Fornecer orientações sobre a implementação da interface com `tkinter`[cite: 2].

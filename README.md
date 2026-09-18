@@ -1,4 +1,4 @@
-# Simulador de Escalonamento de Tarefas — Grupo XX
+# Simulador de Escalonamento de Tarefas — Grupo 10
 
 ## Integrantes
 
